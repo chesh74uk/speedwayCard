@@ -64,3 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap', '~> 4.1.1'
 gem 'activeadmin'
+gem "bootstrap_form", ">= 4.0.0.alpha1"
+gem 'jquery-rails'
