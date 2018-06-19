@@ -4,5 +4,6 @@ class MeetingsController < ApplicationController
     end
     
     def new
+        @meeting = Meeting.new
     end
 end
