@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_082106) do
+ActiveRecord::Schema.define(version: 2018_06_19_130245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 2018_06_19_082106) do
     t.integer "away_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "home_rider_1"
+    t.string "home_rider_2"
+    t.string "home_rider_3"
+    t.string "home_rider_4"
+    t.string "home_rider_5"
+    t.string "home_rider_6"
+    t.string "home_rider_7"
   end
 
   create_table "users", force: :cascade do |t|
