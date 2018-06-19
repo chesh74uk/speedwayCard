@@ -2,7 +2,7 @@ class MeetingsController < ApplicationController
     before_action :set_meeting, only: [:show, :edit, :update, :destroy]
     
     def index
-        @meetings = Meeting.all
+        @meetings = Meeting.all.order(date: :desc)
     end
     
     def edit
