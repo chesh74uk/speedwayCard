@@ -36,6 +36,13 @@ class MeetingsController < ApplicationController
         end
     end
     
+    def destroy
+        @meeting.destroy
+        respond_to do |format|
+          format.html { redirect_to meetings_url, notice: 'Meeting was deleted.' }
+        end
+    end
+    
     private
     def set_meeting
       @meeting = Meeting.find(params[:id])
