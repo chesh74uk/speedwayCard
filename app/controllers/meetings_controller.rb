@@ -1,4 +1,5 @@
 class MeetingsController < ApplicationController
+    before_action :set_meeting, only: [:show, :edit, :update, :destroy]
     
     def index
         @meetings = Meeting.all
@@ -13,7 +14,15 @@ class MeetingsController < ApplicationController
         redirect_to meetings_path
     end
     
+    def show
+        
+    end
+    
     private
+    def set_meeting
+      @meeting = Meeting.find(params[:id])
+    end
+    
     def meeting_params
         params.require(:meeting).permit(:date, :home_team, :away_team)
     end
