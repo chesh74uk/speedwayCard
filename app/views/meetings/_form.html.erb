@@ -1,0 +1,8 @@
+<%= bootstrap_form_for(@meeting) do |f| %>
+    <%= f.date_select :date, format: 'dd-MM-yyyy' %>
+    <%= f.text_field :home_team %>
+    <%= f.text_field :away_team %>
+    
+
+    <%= f.submit "Save" %>
+<% end %>

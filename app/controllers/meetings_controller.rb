@@ -5,17 +5,35 @@ class MeetingsController < ApplicationController
         @meetings = Meeting.all
     end
     
+    def edit
+    end
+    
     def new
         @meeting = Meeting.new
     end
     
     def create
         @meeting = Meeting.create(meeting_params)
-        redirect_to meetings_path
+        respond_to do |format|
+            if @meeting.save
+                format.html { redirect_to meetings_path, notice: 'Meeting was successfully created.' }
+            else
+                format.html { render :new, notice: 'Oops!' }
+            end
+        end
     end
     
     def show
-        
+    end
+    
+    def update
+        respond_to do |format|
+          if @meeting.update(meeting_params)
+            format.html { redirect_to  meetings_path, notice: 'Meeting was successfully updated.' }
+          else
+            format.html { render :edit, notice: 'Oops!' }
+          end
+        end
     end
     
     private
