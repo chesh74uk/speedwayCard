@@ -1,5 +1,16 @@
-<h3>Show meeting</h3>
-<div><%= @meeting.date.strftime("%A %B %C") %></div>
-<div><%= @meeting.home_team %>: <%= @meeting.home_score %></div>
-<div><%= @meeting.away_team %>: <%= @meeting.away_score %></div>
+<div class="container">
+    <div class="row">
+        <div class="col"><h5><%= @meeting.date.strftime("%A %B %C") %></h5></div>
+    </div>
+    <div class="row">
+        <div class="col"><h6><%= @meeting.home_team %>: </h6></div>
+        <div class="col"><h6><%= @meeting.home_score %></h6></div>
+        <div class="col"><h6><%= @meeting.away_team %>: </h6></div>
+        <div class="col"><h6><%= @meeting.away_score %></h6></div>
+        <div class="col"><%= button_to 'Add heat' %></div>
+    </div>
+</div>
+
+
+
 
