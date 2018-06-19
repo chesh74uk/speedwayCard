@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_130245) do
+ActiveRecord::Schema.define(version: 2018_06_19_131512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(version: 2018_06_19_130245) do
     t.string "home_rider_5"
     t.string "home_rider_6"
     t.string "home_rider_7"
+    t.string "away_rider_1"
+    t.string "away_rider_2"
+    t.string "away_rider_3"
+    t.string "away_rider_4"
+    t.string "away_rider_5"
+    t.string "away_rider_6"
+    t.string "away_rider_7"
   end
 
   create_table "users", force: :cascade do |t|
