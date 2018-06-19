@@ -7,5 +7,8 @@ feature 'create meetings' do
         expect(page).to have_content'New meeting'
         fill_in 'Home team', with: 'Belle Vue Aces'
         fill_in 'Away team', with: 'Poole Pirates'
+        click_button 'Create meeting'
+        expect(page).to have_content 'Belle Vue Aces'
+        expect(page).to have_content 'Poole Pirates'
     end
 end

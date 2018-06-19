@@ -1,2 +1,36 @@
 <h3>Meetings</h3>
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Home</th>
+        <th scope="col">Score</th>
+        <th scope="col">Away</th>
+        <th scope="col">Score</th>
+        <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @meetings.each do |meeting| %>
+      <tr>
+          <td><%= meeting.date %></td>
+          <td><%= meeting.home_team %></td>
+          <td><%= meeting.home_score %></td>
+          <td><%= meeting.away_team %></td>
+          <td><%= meeting.away_score %></td>
+          <td></td>
+          <td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+
+
 <%= link_to 'New meeting', new_meeting_path %>
