@@ -24,11 +24,7 @@ class HeatsController < ApplicationController
     end
   end
   
-  
-  def show
-    meeting
-    @heat = meeting.heats.find(params[:id])
-  end
+
   
   def create
     @heat = Heat.new(heat_params)
