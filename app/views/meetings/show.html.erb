@@ -7,13 +7,14 @@
         <div class="col"><h6><%= @meeting.home_score %></h6></div>
         <div class="col"><h6><%= @meeting.away_team %>: </h6></div>
         <div class="col"><h6><%= @meeting.away_score %></h6></div>
-        <div class="col"><%= button_to 'Add heat', new_meeting_heat_path(meeting_id: @meeting.id), method: :get %></div>
+        <div class="col"><%= button_to "Add heat", new_heat_path, params: {:meeting_id => @meeting.id}, method: :get %></div>
+        
     </div>
     <% @meeting.heats.each do |heat| %>
     <div class="row">
         <div class="col"><%= heat.heat_number %></div>
         <div class="col"><%= heat.heat_time %></div>
-        <div class="col"><%= link_to 'Edit', edit_meeting_heat_path(meeting_id: @meeting.id) %></div>
+        <div class="col"><%= link_to 'Edit', edit_heat_path(meeting_id: @meeting.id) %></div>
     </div>
     <% end %>
 </div>
