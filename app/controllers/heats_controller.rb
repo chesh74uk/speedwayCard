@@ -5,6 +5,7 @@ class HeatsController < ApplicationController
     @heat = Heat.new(:meeting_id => params[:meeting_id])
     @meeting = @heat.meeting
     1.times {@heat.blues.build}
+    1.times {@heat.whites.build}
     last_heat = Heat.last
     last_heat ? @heat.heat_number = last_heat.heat_number + 1 : @heat.heat_number = 1
   end
@@ -41,7 +42,8 @@ class HeatsController < ApplicationController
   
   private def heat_params
     params.require(:heat).permit(:heat_number, :heat_time, :meeting_id, 
-        blues_attributes: [:id, :gate_number, :rider_name, :score])
+        blues_attributes: [:id, :gate_number, :rider_name, :score],
+        whites_attributes: [:id, :gate_number, :rider_name, :score])
   end
   
 end
