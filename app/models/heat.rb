@@ -7,4 +7,6 @@ class Heat < ApplicationRecord
   accepts_nested_attributes_for :whites
   has_many :reds, dependent: :destroy
   accepts_nested_attributes_for :reds
+  has_many :yellows, dependent: :destroy
+  accepts_nested_attributes_for :yellows
 end

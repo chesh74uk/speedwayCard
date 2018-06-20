@@ -69,6 +69,25 @@
     </div>
     <% end %>
 </div>
+<div>
+    <%= f.fields_for :yellows do |ff| %>
+    <div>
+        <%= ff.label 'Gate' %>
+        <%= ff.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= ff.label 'Rider' %>
+        <%= ff.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
+                                                            [@meeting.away_rider_2, @meeting.away_rider_2],
+                                                            [@meeting.away_rider_3, @meeting.away_rider_3],
+                                                            [@meeting.away_rider_4, @meeting.away_rider_4],
+                                                            [@meeting.away_rider_5, @meeting.away_rider_5],
+                                                            [@meeting.away_rider_6, @meeting.away_rider_6],
+                                                            [@meeting.away_rider_7, @meeting.away_rider_7]
+                                                            ])) %>
+        <%= ff.label :score %>
+        <%= ff.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+    </div>
+    <% end %>
+</div>
 <%= f.submit %>
 <% end %>
 
