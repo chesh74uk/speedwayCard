@@ -1,22 +1,19 @@
-
-
-
 <%= form_for @heat do |f| %>
 <div>
     <%= f.label :heat_time %>
     <%= f.text_field :heat_time %>
-    <%= f.hidden_field :meeting_id %>
+    <%= f.hidden_field :meeting_id, value:@meeting.id %>
     <%= f.hidden_field :heat_number %>
 </div
 <p></p>
 <div>
-    <%= @heat.meeting.home_team %>
-    <%= f.fields_for :blues do |ff| %>
+    <%= @meeting.home_team %>
+    <%= f.fields_for :blues do |blue| %>
         <div >
-        <%= ff.label 'Gate' %>
-        <%= ff.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
-        <%= ff.label 'Rider' %>
-        <%= ff.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
+        <%= blue.label 'Gate' %>
+        <%= blue.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= blue.label 'Rider' %>
+        <%= blue.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
                                                             [@meeting.home_rider_2, @meeting.home_rider_2],
                                                             [@meeting.home_rider_3, @meeting.home_rider_3],
                                                             [@meeting.home_rider_4, @meeting.home_rider_4],
@@ -24,18 +21,18 @@
                                                             [@meeting.home_rider_6, @meeting.home_rider_6],
                                                             [@meeting.home_rider_7, @meeting.home_rider_7]
                                                             ])) %>
-        <%= ff.label :score %>
-        <%= ff.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+        <%= blue.label :score %>
+        <%= blue.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
     </div>
     <% end %>
 </div>
 <div>
-    <%= f.fields_for :reds do |ff| %>
+    <%= f.fields_for :reds do |red| %>
         <div >
-        <%= ff.label 'Gate' %>
-        <%= ff.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
-        <%= ff.label 'Rider' %>
-        <%= ff.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
+        <%= red.label 'Gate' %>
+        <%= red.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= red.label 'Rider' %>
+        <%= red.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
                                                             [@meeting.home_rider_2, @meeting.home_rider_2],
                                                             [@meeting.home_rider_3, @meeting.home_rider_3],
                                                             [@meeting.home_rider_4, @meeting.home_rider_4],
@@ -43,20 +40,20 @@
                                                             [@meeting.home_rider_6, @meeting.home_rider_6],
                                                             [@meeting.home_rider_7, @meeting.home_rider_7]
                                                             ])) %>
-        <%= ff.label :score %>
-        <%= ff.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+        <%= red.label :score %>
+        <%= red.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
     </div>
     <% end %>
 </div>
 <p></p>
 <div>
-    <%= @heat.meeting.away_team %>
-    <%= f.fields_for :whites do |ff| %>
+    <%= @meeting.away_team %>
+    <%= f.fields_for :whites do |white| %>
     <div>
-        <%= ff.label 'Gate' %>
-        <%= ff.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
-        <%= ff.label 'Rider' %>
-        <%= ff.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
+        <%= white.label 'Gate' %>
+        <%= white.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= white.label 'Rider' %>
+        <%= white.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
                                                             [@meeting.away_rider_2, @meeting.away_rider_2],
                                                             [@meeting.away_rider_3, @meeting.away_rider_3],
                                                             [@meeting.away_rider_4, @meeting.away_rider_4],
@@ -64,18 +61,18 @@
                                                             [@meeting.away_rider_6, @meeting.away_rider_6],
                                                             [@meeting.away_rider_7, @meeting.away_rider_7]
                                                             ])) %>
-        <%= ff.label :score %>
-        <%= ff.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+        <%= white.label :score %>
+        <%= white.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
     </div>
     <% end %>
 </div>
 <div>
-    <%= f.fields_for :yellows do |ff| %>
+    <%= f.fields_for :yellows do |yellow| %>
     <div>
-        <%= ff.label 'Gate' %>
-        <%= ff.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
-        <%= ff.label 'Rider' %>
-        <%= ff.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
+        <%= yellow.label 'Gate' %>
+        <%= yellow.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= yellow.label 'Rider' %>
+        <%= yellow.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
                                                             [@meeting.away_rider_2, @meeting.away_rider_2],
                                                             [@meeting.away_rider_3, @meeting.away_rider_3],
                                                             [@meeting.away_rider_4, @meeting.away_rider_4],
@@ -83,8 +80,8 @@
                                                             [@meeting.away_rider_6, @meeting.away_rider_6],
                                                             [@meeting.away_rider_7, @meeting.away_rider_7]
                                                             ])) %>
-        <%= ff.label :score %>
-        <%= ff.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+        <%= yellow.label :score %>
+        <%= yellow.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
     </div>
     <% end %>
 </div>

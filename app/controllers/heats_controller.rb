@@ -2,8 +2,8 @@ class HeatsController < ApplicationController
 
   
   def new
-    @heat = Heat.new(:meeting_id => params[:meeting_id])
-    @meeting = @heat.meeting
+    @meeting = Meeting.find(params[:meeting_id])
+    @heat = Heat.new
     1.times {@heat.blues.build}
     1.times {@heat.reds.build}
     1.times {@heat.whites.build}
@@ -13,8 +13,8 @@ class HeatsController < ApplicationController
   end
   
   def edit
-    meeting = Meeting.find(params[:meeting_id])
-    @heat = meeting.heats.find(params[:id])
+    @heat = Heat.find(params[:id])
+    @meeting = @heat.meeting
   end
   
   

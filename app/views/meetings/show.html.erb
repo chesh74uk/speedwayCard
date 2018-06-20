@@ -14,8 +14,23 @@
     <div class="row">
         <div class="col"><%= heat.heat_number %></div>
         <div class="col"><%= heat.heat_time %></div>
-        <div class="col"><%= link_to 'Edit', edit_heat_path(meeting_id: @meeting.id) %></div>
+        <div class="col"><%= link_to 'Edit', edit_heat_path, params: {:meeting_id => @meeting.id} %></div>
     </div>
+    <div class="row">
+        <% heat.blues.each do |blue| %>
+            <div class="col"><%= blue.rider_name %> : <%= blue.score %></div>
+        <%end %>
+        <% heat.reds.each do |red| %>
+            <div class="col"><%= red.rider_name %> : <%= red.score %></div>
+        <%end %>
+        <% heat.whites.each do |white| %>
+            <div class="col"><%= white.rider_name %> : <%= white.score %></div>
+        <%end %>
+        <% heat.yellows.each do |yellow| %>
+            <div class="col"><%= yellow.rider_name %> : <%= yellow.score %></div>
+        <%end %>
+    </div>
+    <p></p>
     <% end %>
 </div>
 

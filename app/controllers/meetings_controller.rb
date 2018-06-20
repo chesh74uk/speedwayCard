@@ -24,7 +24,41 @@ class MeetingsController < ApplicationController
     end
     
     def show
+        @meeting = Meeting.find(params[:id])
+        
+        if @meeting.heats.present?
+            @heat = Heats.where
+            @heat.each do |heat|
+                heat.blues.each do |blue|
+                    @blue = blue.score
+                    @blue = @blue + @blue
+                end
+                heat.reds.each do |red|
+                    @red = red.score
+                    @red = @red + @red
+                end
+                heat.whites.each do |white|
+                    @white = white.score
+                    @white = @white + @white
+                end
+                heat.yellows.each do |yellow|
+                    @yellow = yellow.score
+                    @yellow = @yellow + @yellow
+                end
+            end
+            @meeting.home_score = @blue + @red
+            @meeting.away_score = @white + @yellow
+            
+                
+            #blue_total = @heat.blues.sum(:score)
+            #red_total = @heat.reds.sum(:score)
+            #@meeting.home_score = blue_total + red_total
+            #white_total = @heat.whites.sum(:score)
+            #yellow_total = @heat.yellows.sum(:score)
+            #@meeting.away_score = white_total + yellow_total
+        end
     end
+    
     
     def update
         respond_to do |format|
@@ -46,6 +80,7 @@ class MeetingsController < ApplicationController
     private
     def set_meeting
       @meeting = Meeting.find(params[:id])
+      
     end
     
     def meeting_params
