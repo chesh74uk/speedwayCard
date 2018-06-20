@@ -6,12 +6,30 @@ class HeatsController < ApplicationController
     @heat = meeting.heats.build
     last_heat = Heat.last
     
-    if last_heat.heat_number.nil? 
+    if last_heat.nil? || last_heat.heat_number.nil? 
       @heat.heat_number = 1
     else
       @heat.heat_number = last_heat.heat_number + 1
     end
     
+  end
+  
+  def edit
+    meeting = Meeting.find(params[:meeting_id])
+    @heat = meeting.heats.find(params[:id])
+  end
+  
+  
+  def update
+    meeting = Meeting.find(params[:meeting_id])
+    @heat = meeting.heats.find(params[:id])
+    respond_to do |format|
+      if @heat.update_attributes(heat_params)
+        format.html { redirect_to meeting_path(params[:meeting_id]), notice: 'Heat changed' }
+      else
+        format.html { render :new, notice: 'Oops!' }
+      end
+    end
   end
   
   

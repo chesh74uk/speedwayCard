@@ -1,4 +1,5 @@
 <%= bootstrap_form_for([@heat.meeting, @heat]) do |f| %>
     <%= f.text_field :heat_time, prepend: "Heat time", skip_label: true, layout: :inline %>
+    <%= f.hidden_field :heat_number %>
     <%= f.submit "Save" %>
 <% end %>
