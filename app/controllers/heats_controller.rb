@@ -38,7 +38,7 @@ class HeatsController < ApplicationController
   end
   
   private def heat_params
-    params.require(:heat).permit(:heat_number, :heat_time, :meeting_id)
+    params.require(:heat).permit(:heat_number, :heat_time, :meeting_id, gates_Attributes: [:id, gate_number, :helmet_colour. :rider_name, :score])
   end
   
 end
