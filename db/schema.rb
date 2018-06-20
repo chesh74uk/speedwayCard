@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_20_134130) do
+ActiveRecord::Schema.define(version: 2018_06_20_134530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,16 @@ ActiveRecord::Schema.define(version: 2018_06_20_134130) do
     t.string "away_rider_7"
   end
 
+  create_table "reds", force: :cascade do |t|
+    t.bigint "heat_id"
+    t.integer "gate_number"
+    t.string "rider_name"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["heat_id"], name: "index_reds_on_heat_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -142,5 +152,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_134130) do
   add_foreign_key "blues", "heats"
   add_foreign_key "gates", "heats"
   add_foreign_key "heats", "meetings"
+  add_foreign_key "reds", "heats"
   add_foreign_key "whites", "heats"
 end

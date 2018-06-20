@@ -1,0 +1,18 @@
+        <%= @heat.meeting.home_team %>
+    <%= f.fields_for :blues do |ff| %>
+        <div >
+        <%= ff.label 'Gate' %>
+        <%= ff.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= ff.label 'Rider' %>
+        <%= ff.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
+                                                            [@meeting.home_rider_2, @meeting.home_rider_2],
+                                                            [@meeting.home_rider_3, @meeting.home_rider_3],
+                                                            [@meeting.home_rider_4, @meeting.home_rider_4],
+                                                            [@meeting.home_rider_5, @meeting.home_rider_5],
+                                                            [@meeting.home_rider_6, @meeting.home_rider_6],
+                                                            [@meeting.home_rider_7, @meeting.home_rider_7]
+                                                            ])) %>
+        <%= ff.label :score %>
+        <%= ff.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+    </div>
+    <% end %>
