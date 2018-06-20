@@ -1,6 +1,17 @@
 <%= bootstrap_form_for(@meeting) do |f| %>
     <%= f.date_select :date, format: 'dd-MM-yyyy', layout: :default %>
-    <%= f.text_field :home_team, prepend: "Home team", skip_label: true, layout: :inline %>
+    <%= f.select :home_team, [["Belle Vue Aces"], 
+                                ["King's Lynn Stars"],
+                                ["Leicester Lions"],
+                                ["Poole Pirates"],
+                                ["Rye House Rockets "],
+                                ["Somerset Rebels "],
+                                ["Swindon Robins"],
+                                ["Wolverhampton Wolves"]],
+    prepend: "Home team", skip_label: true, layout: :inline %>
+    
+    
+    
     <%= f.text_field :home_rider_1, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>
     <%= f.text_field :home_rider_2, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>
     <%= f.text_field :home_rider_3, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>
@@ -8,7 +19,17 @@
     <%= f.text_field :home_rider_5, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>
     <%= f.text_field :home_rider_6, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>
     <%= f.text_field :home_rider_7, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>
-    <%= f.text_field :away_team, prepend: "Away team", skip_label: true, layout: :inline %>
+    
+    <%= f.select :away_team, [["Belle Vue Aces"], 
+                                ["King's Lynn Stars"],
+                                ["Leicester Lions"],
+                                ["Poole Pirates"],
+                                ["Rye House Rockets "],
+                                ["Somerset Rebels "],
+                                ["Swindon Robins"],
+                                ["Wolverhampton Wolves"]],
+    prepend: "Away team", skip_label: true, layout: :inline %>
+    
     <%= f.text_field :away_rider_1, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>
     <%= f.text_field :away_rider_2, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>
     <%= f.text_field :away_rider_3, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-3"%>

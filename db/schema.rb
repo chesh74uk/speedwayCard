@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_20_113603) do
+ActiveRecord::Schema.define(version: 2018_06_20_130102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2018_06_20_113603) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "away_gates", force: :cascade do |t|
+    t.bigint "heat_id"
+    t.integer "gate_number"
+    t.string "helmet_colour"
+    t.string "rider_name"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["heat_id"], name: "index_away_gates_on_heat_id"
   end
 
   create_table "gates", force: :cascade do |t|
@@ -107,6 +118,7 @@ ActiveRecord::Schema.define(version: 2018_06_20_113603) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "away_gates", "heats"
   add_foreign_key "gates", "heats"
   add_foreign_key "heats", "meetings"
 end

@@ -1,6 +1,61 @@
-<%= bootstrap_form_for(@heat) do |f| %>
-    <%= f.text_field :heat_time, prepend: "Heat time", skip_label: true, layout: :inline %>
-    <%= f.hidden_field :heat_number %>
+
+
+
+<%= form_for @heat do |f| %>
+<div>
+    <%= f.label :heat_time %>
+    <%= f.text_field :heat_time %>
     <%= f.hidden_field :meeting_id %>
-    <%= f.submit "Save" %>
+    <%= f.hidden_field :heat_number %>
+</div
+<p></p>
+<div>
+    <%= @heat.meeting.home_team %>
+    <%= f.fields_for :gates do |gate| %>
+    <div>
+        <%= gate.label :gate_number %>
+        <%= gate.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= gate.label 'Rider' %>
+        <%= gate.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
+                                                            [@meeting.home_rider_2, @meeting.home_rider_2],
+                                                            [@meeting.home_rider_3, @meeting.home_rider_3],
+                                                            [@meeting.home_rider_4, @meeting.home_rider_4],
+                                                            [@meeting.home_rider_5, @meeting.home_rider_5],
+                                                            [@meeting.home_rider_6, @meeting.home_rider_6],
+                                                            [@meeting.home_rider_7, @meeting.home_rider_7]
+                                                            ])) %>
+        <%= gate.label :helmet_colour %>
+        <%= gate.select(:helmet_colour, options_for_select([['Red'],['Blue']])) %>
+        <%= gate.label :score %>
+        <%= gate.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+    </div>
+    <% end %>
+</div>
+<p></p>
+<div>
+    <%= @heat.meeting.away_team %>
+    <%= f.fields_for :away_gates do |gate| %>
+    <div>
+        <%= gate.label :gate_number %>
+        <%= gate.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= gate.label 'Rider' %>
+        <%= gate.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
+                                                            [@meeting.away_rider_2, @meeting.away_rider_2],
+                                                            [@meeting.away_rider_3, @meeting.away_rider_3],
+                                                            [@meeting.away_rider_4, @meeting.away_rider_4],
+                                                            [@meeting.away_rider_5, @meeting.away_rider_5],
+                                                            [@meeting.away_rider_6, @meeting.away_rider_6],
+                                                            [@meeting.away_rider_7, @meeting.away_rider_7]
+                                                            ])) %>
+        <%= gate.label :helmet_colour %>
+        <%= gate.select(:helmet_colour, options_for_select([['White'],['Yellow']])) %>
+        <%= gate.label :score %>
+        <%= gate.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+    </div>
+    <% end %>
+</div>
+<%= f.submit %>
 <% end %>
+
+
+
