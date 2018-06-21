@@ -1,15 +1,15 @@
-<div >
-        <%= blue.label 'Gate' %>
-        <%= blue.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]], blue.object.gate_number)) %>
-        <%= blue.label 'Rider' %>
-        <%= blue.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
+<div>
+        <%= red.label 'Gate' %>
+        <%= red.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]], red.object.gate_number)) %>
+        <%= red.label 'Rider' %>
+        <%= red.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
                                                             [@meeting.home_rider_2, @meeting.home_rider_2],
                                                             [@meeting.home_rider_3, @meeting.home_rider_3],
                                                             [@meeting.home_rider_4, @meeting.home_rider_4],
                                                             [@meeting.home_rider_5, @meeting.home_rider_5],
                                                             [@meeting.home_rider_6, @meeting.home_rider_6],
                                                             [@meeting.home_rider_7, @meeting.home_rider_7]
-                                                            ], blue.object.rider_name)) %>
-        <%= blue.label :score %>
-        <%= blue.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]], blue.object.score)) %>
+                                                            ], red.object.rider_name)) %>
+        <%= red.label :score %>
+        <%= red.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]], red.object.score)) %>
 </div>

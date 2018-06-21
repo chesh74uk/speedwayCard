@@ -1,0 +1,15 @@
+<div>
+    <%= white.label 'Gate' %>
+    <%= white.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]], white.object.gate_number)) %>
+    <%= white.label 'Rider' %>
+    <%= white.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
+                                                        [@meeting.away_rider_2, @meeting.away_rider_2],
+                                                        [@meeting.away_rider_3, @meeting.away_rider_3],
+                                                        [@meeting.away_rider_4, @meeting.away_rider_4],
+                                                        [@meeting.away_rider_5, @meeting.away_rider_5],
+                                                        [@meeting.away_rider_6, @meeting.away_rider_6],
+                                                        [@meeting.away_rider_7, @meeting.away_rider_7]
+                                                        ], white.object.rider_name)) %>
+    <%= white.label :score %>
+    <%= white.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]], white.object.score)) %>
+</div>
