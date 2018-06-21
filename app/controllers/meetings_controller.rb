@@ -27,35 +27,27 @@ class MeetingsController < ApplicationController
         @meeting = Meeting.find(params[:id])
         
         if @meeting.heats.present?
-            @heat = Heats.where
+            @heat = Heat.where(meeting_id: @meeting.id)
+            @blue = 0
+            @red = 0
+            @white = 0
+            @yellow = 0
             @heat.each do |heat|
                 heat.blues.each do |blue|
-                    @blue = blue.score
-                    @blue = @blue + @blue
+                    @blue = blue.score + @blue
                 end
                 heat.reds.each do |red|
-                    @red = red.score
-                    @red = @red + @red
+                    @red = red.score + @red
                 end
                 heat.whites.each do |white|
-                    @white = white.score
-                    @white = @white + @white
+                    @white = white.score + @white
                 end
                 heat.yellows.each do |yellow|
-                    @yellow = yellow.score
-                    @yellow = @yellow + @yellow
+                    @yellow = yellow.score + @yellow
                 end
             end
             @meeting.home_score = @blue + @red
             @meeting.away_score = @white + @yellow
-            
-                
-            #blue_total = @heat.blues.sum(:score)
-            #red_total = @heat.reds.sum(:score)
-            #@meeting.home_score = blue_total + red_total
-            #white_total = @heat.whites.sum(:score)
-            #yellow_total = @heat.yellows.sum(:score)
-            #@meeting.away_score = white_total + yellow_total
         end
     end
     
