@@ -14,7 +14,8 @@
     <div class="row">
         <div class="col"><%= heat.heat_number %></div>
         <div class="col"><%= heat.heat_time %></div>
-        <div class="col"><%= link_to 'Edit', edit_heat_path, params: {:meeting_id => @meeting.id} %></div>
+        <div class="col">Heat ID: <%= heat.id %></div>
+        <div class="col"><%= button_to 'Edit', edit_heat_path(heat.id), method: :get %></div>
     </div>
     <div class="row">
         <% heat.blues.each do |blue| %>

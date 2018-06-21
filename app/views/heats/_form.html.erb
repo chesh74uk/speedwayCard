@@ -11,7 +11,7 @@
     <%= f.fields_for :blues do |blue| %>
         <div >
         <%= blue.label 'Gate' %>
-        <%= blue.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= blue.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]], blue.object.gate_number)) %>
         <%= blue.label 'Rider' %>
         <%= blue.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
                                                             [@meeting.home_rider_2, @meeting.home_rider_2],
@@ -20,9 +20,9 @@
                                                             [@meeting.home_rider_5, @meeting.home_rider_5],
                                                             [@meeting.home_rider_6, @meeting.home_rider_6],
                                                             [@meeting.home_rider_7, @meeting.home_rider_7]
-                                                            ])) %>
+                                                            ], blue.object.rider_name)) %>
         <%= blue.label :score %>
-        <%= blue.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+        <%= blue.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]], blue.object.score)) %>
     </div>
     <% end %>
 </div>
@@ -30,7 +30,7 @@
     <%= f.fields_for :reds do |red| %>
         <div >
         <%= red.label 'Gate' %>
-        <%= red.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= red.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]], red.object.gate_number)) %>
         <%= red.label 'Rider' %>
         <%= red.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
                                                             [@meeting.home_rider_2, @meeting.home_rider_2],
@@ -39,9 +39,9 @@
                                                             [@meeting.home_rider_5, @meeting.home_rider_5],
                                                             [@meeting.home_rider_6, @meeting.home_rider_6],
                                                             [@meeting.home_rider_7, @meeting.home_rider_7]
-                                                            ])) %>
+                                                            ], red.object.rider_name)) %>
         <%= red.label :score %>
-        <%= red.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+        <%= red.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]], red.object.score)) %>
     </div>
     <% end %>
 </div>
@@ -51,7 +51,7 @@
     <%= f.fields_for :whites do |white| %>
     <div>
         <%= white.label 'Gate' %>
-        <%= white.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= white.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]], white.object.gate_number)) %>
         <%= white.label 'Rider' %>
         <%= white.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
                                                             [@meeting.away_rider_2, @meeting.away_rider_2],
@@ -60,9 +60,9 @@
                                                             [@meeting.away_rider_5, @meeting.away_rider_5],
                                                             [@meeting.away_rider_6, @meeting.away_rider_6],
                                                             [@meeting.away_rider_7, @meeting.away_rider_7]
-                                                            ])) %>
+                                                            ], white.object.rider_name)) %>
         <%= white.label :score %>
-        <%= white.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+        <%= white.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]], white.object.score)) %>
     </div>
     <% end %>
 </div>
@@ -70,7 +70,7 @@
     <%= f.fields_for :yellows do |yellow| %>
     <div>
         <%= yellow.label 'Gate' %>
-        <%= yellow.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]])) %>
+        <%= yellow.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]], yellow.object.gate_number)) %>
         <%= yellow.label 'Rider' %>
         <%= yellow.select(:rider_name, options_for_select([[@meeting.away_rider_1, @meeting.away_rider_1],
                                                             [@meeting.away_rider_2, @meeting.away_rider_2],
@@ -79,9 +79,9 @@
                                                             [@meeting.away_rider_5, @meeting.away_rider_5],
                                                             [@meeting.away_rider_6, @meeting.away_rider_6],
                                                             [@meeting.away_rider_7, @meeting.away_rider_7]
-                                                            ])) %>
+                                                            ], yellow.object.rider_name)) %>
         <%= yellow.label :score %>
-        <%= yellow.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]])) %>
+        <%= yellow.select(:score, options_for_select([['0',0],['1',1],['2',2],['3',3]], yellow.object.score)) %>
     </div>
     <% end %>
 </div>
