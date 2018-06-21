@@ -6,9 +6,7 @@
     <tr>
         <th scope="col">Date</th>
         <th scope="col">Home</th>
-        <th scope="col">Score</th>
         <th scope="col">Away</th>
-        <th scope="col">Score</th>
         <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +14,8 @@
       <% @meetings.each do |meeting| %>
       <tr>
           <td><%= meeting.date.strftime("%d %b %y") %></td>
-          <td><%= meeting.home_team %></td>
-          <td><%= meeting.home_score %></td>
-          <td><%= meeting.away_team %></td>
-          <td><%= meeting.away_score %></td>
+          <td><%= meeting.home_team %>: <%= meeting.home_score %></td>
+          <td><%= meeting.away_team %>: <%= meeting.away_score %></td>
           <td><%= link_to 'Show', meeting %></td>
           <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
           <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
