@@ -22,6 +22,18 @@ RSpec.describe MeetingsController, type: :controller do
                 expect(subject).to render_template(:new)
             end
         end
+=begin        
+        describe "GET show" do
+            before do
+                @meeting = FactoryBot.create(:meeting)
+            end
+            subject { get :show }
+            it "renders the show template" do
+               get :show, params: { id: @meeting.id } 
+               expect(subject).to render_template(:show)
+            end
+        end
+=end        
     end
             
     context "with render views" do
