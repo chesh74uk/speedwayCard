@@ -14,8 +14,8 @@
       <% @meetings.each do |meeting| %>
       <tr>
           <td><%= meeting.date.strftime("%d %b %y") %></td>
-          <td><%= meeting.home_team %>: <%= meeting.home_score %></td>
-          <td><%= meeting.away_team %>: <%= meeting.away_score %></td>
+          <td><%= meeting.home_team %>: <%= meeting_home_score(meeting.id) %></td>
+          <td><%= meeting.away_team %>: <%= meeting_away_score(meeting.id) %></td>
           <td><%= link_to 'Show', meeting %></td>
           <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
           <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>

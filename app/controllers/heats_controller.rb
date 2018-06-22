@@ -8,8 +8,8 @@ class HeatsController < ApplicationController
     1.times {@heat.reds.build}
     1.times {@heat.whites.build}
     1.times {@heat.yellows.build}
-    last_heat = Heat.last
-    last_heat ? @heat.heat_number = last_heat.heat_number + 1 : @heat.heat_number = 1
+    last_heat = Heat.where(meeting_id: @meeting.id)
+    @heat.heat_number = last_heat.count + 1
   end
   
   def edit

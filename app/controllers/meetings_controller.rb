@@ -23,32 +23,10 @@ class MeetingsController < ApplicationController
         end
     end
     
+
+    
     def show
         @meeting = Meeting.find(params[:id])
-        
-        if @meeting.heats.present?
-            @heat = Heat.where(meeting_id: @meeting.id)
-            @blue = 0
-            @red = 0
-            @white = 0
-            @yellow = 0
-            @heat.each do |heat|
-                heat.blues.each do |blue|
-                    @blue = blue.score + @blue
-                end
-                heat.reds.each do |red|
-                    @red = red.score + @red
-                end
-                heat.whites.each do |white|
-                    @white = white.score + @white
-                end
-                heat.yellows.each do |yellow|
-                    @yellow = yellow.score + @yellow
-                end
-            end
-            @meeting.home_score = @blue + @red
-            @meeting.away_score = @white + @yellow
-        end
     end
     
     
