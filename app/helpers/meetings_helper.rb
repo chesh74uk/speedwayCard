@@ -1,5 +1,25 @@
 module MeetingsHelper
     
+    def gate_results(id, gate_number)
+        heats = Heat.where(meeting_id:id)
+        gate_score = 0
+        gate_blue = 0
+        gate_red = 0
+        gate_white = 0
+        gate_yellow = 0
+        heats.each do |heat|
+            blues = Blue.where(gate_number: gate_number)
+            reds = Red.where(gate_number: gate_number)
+            whites = White.where(gate_number: gate_number)
+            yellows = Yellow.where(gate_number: gate_number)
+            gate_blue = blues.select{|x| x[:gate_number] == gate_number}.map{|y| y[:score].to_i}.reduce(:+)
+            gate_red = reds.select{|x| x[:gate_number] == gate_number}.map{|y| y[:score].to_i}.reduce(:+)
+            gate_white = whites.select{|x| x[:gate_number] == gate_number}.map{|y| y[:score].to_i}.reduce(:+)
+            gate_yellow = yellows.select{|x| x[:gate_number] == gate_number}.map{|y| y[:score].to_i}.reduce(:+)
+        end
+        gate_score = gate_blue.to_i + gate_red.to_i + gate_white.to_i + gate_yellow.to_i
+    end
+    
     def meeting_home_score(id)
         heats = Heat.where(meeting_id:id)
         blue_result = 0

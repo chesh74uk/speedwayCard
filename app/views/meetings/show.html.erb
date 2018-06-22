@@ -15,7 +15,7 @@
     <tbody>
         <% @meeting.heats.each do |heat| %>
         <tr>
-            <td>Heat: <%= heat.heat_number %> Time: <%= heat.heat_time %></td>
+            <td>Heat <%= heat.heat_number %> : <%= heat.heat_time %></td>
             <td><%= button_to 'Edit', edit_heat_path(heat.id), method: :get, class: 'btn btn-sm' %></td>
         </tr>
         <tr>
@@ -100,6 +100,32 @@
         </tr>
     </tbody>
 </table>
-
-
+<p></p>
+<h6>Gate results</h6>
+<table class="table table-hover table-sm">
+    <thead class="thead-light">
+        <tr>
+            <th>Gate</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td><%= gate_results(@meeting.id, 1) %></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td><%= gate_results(@meeting.id, 2) %></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td><%= gate_results(@meeting.id, 3) %></td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td><%= gate_results(@meeting.id, 4) %></td>
+        </tr>
+    </tbody>
+</table>
 
