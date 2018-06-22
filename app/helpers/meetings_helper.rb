@@ -1,5 +1,10 @@
 module MeetingsHelper
     
+    def fastest_heat(id)
+       result = Heat.where(meeting_id:id).minimum("heat_time")
+    end
+    
+    
     def gate_results(id, gate_number)
         heats = Heat.where(meeting_id:id)
         gate_score = 0
