@@ -36,6 +36,70 @@
     </tbody>
 </table>
 
+<p></p>
+<h6>Rider results</h6>
+<table class="table table-hover table-sm">
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th><%= @meeting.home_team %></td>
+            <th>Total</td>
+            <th><%= @meeting.away_team %></td>
+            <th>Total</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td><%= @meeting.home_rider_1 %></td>
+            <td><%= home_rider_score(@meeting.id, @meeting.home_rider_1) %></td>
+            <td><%= @meeting.away_rider_1 %></td>
+            <td><%= away_rider_score(@meeting.id, @meeting.away_rider_1) %></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td><%= @meeting.home_rider_2 %></td>
+            <td><%= home_rider_score(@meeting.id, @meeting.home_rider_2) %></td>
+            <td><%= @meeting.away_rider_2 %></td>
+            <td><%= away_rider_score(@meeting.id, @meeting.away_rider_2) %></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td><%= @meeting.home_rider_3 %></td>
+            <td><%= home_rider_score(@meeting.id, @meeting.home_rider_3) %></td>
+            <td><%= @meeting.away_rider_3 %></td>
+            <td><%= away_rider_score(@meeting.id, @meeting.away_rider_3) %></td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td><%= @meeting.home_rider_4 %></td>
+            <td><%= home_rider_score(@meeting.id, @meeting.home_rider_4) %></td>
+            <td><%= @meeting.away_rider_4 %></td>
+            <td><%= away_rider_score(@meeting.id, @meeting.away_rider_4) %></td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td><%= @meeting.home_rider_5 %></td>
+            <td><%= home_rider_score(@meeting.id, @meeting.home_rider_5) %></td>
+            <td><%= @meeting.away_rider_5 %></td>
+            <td><%= away_rider_score(@meeting.id, @meeting.away_rider_5) %></td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td><%= @meeting.home_rider_6 %></td>
+            <td><%= home_rider_score(@meeting.id, @meeting.home_rider_6) %></td>
+            <td><%= @meeting.away_rider_6 %></td>
+            <td><%= away_rider_score(@meeting.id, @meeting.away_rider_6) %></td>
+        </tr>
+        <tr>
+            <th scope="row">7</th>
+            <td><%= @meeting.home_rider_7 %></td>
+            <td><%= home_rider_score(@meeting.id, @meeting.home_rider_7) %></td>
+            <td><%= @meeting.away_rider_7 %></td>
+            <td><%= away_rider_score(@meeting.id, @meeting.away_rider_7) %></td>
+        </tr>
+    </tbody>
+</table>
 
 
 
