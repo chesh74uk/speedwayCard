@@ -7,6 +7,5 @@ class CreateHeats < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :heats, [:meeting_id]
   end
 end
