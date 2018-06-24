@@ -1,37 +1,46 @@
-<%= form_for @heat do |f| %>
-<div>
-    <%= f.label :heat_time %>
-    <%= f.text_field :heat_time %>
-    <%= f.hidden_field :meeting_id, value:@meeting.id %>
-    <%= f.hidden_field :heat_number %>
-    <%= f.hidden_field :id %>
-</div
-<p></p>
-<div>
-    <%= @meeting.home_team %>
-    <%= f.fields_for :blues do |blue| %>
-        <%= render 'blue', blue: blue %>
-    <% end %>
-</div>
-<div>
-    <%= f.fields_for :reds do |red| %>
-        <%= render 'red', red: red %>
-    <% end %>
-</div>
-<p></p>
-<div>
-    <%= @meeting.away_team %>
-    <%= f.fields_for :whites do |white| %>
-        <%= render 'white', white: white %>
-    <% end %>
-</div>
-<div>
-    <%= f.fields_for :yellows do |yellow| %>
-        <%= render 'yellow', yellow: yellow %>
-    <% end %>
-</div>
-<%= f.submit %>
-<% end %>
 
+<div class="form-group">
+    <div>
+        <%= form_for @heat do |f| %>
+        <%= f.label 'Heat time' %>
+        <%= f.text_field :heat_time, prepend: "Heat time", skip_label: true, layout: :inline %>
+        <%= f.hidden_field :meeting_id, value:@meeting.id %>
+        <%= f.hidden_field :heat_number %>
+        <%= f.hidden_field :id %>
+    </div>
+    <p></p>
+    <div>
+        <%= @meeting.home_team %>
+        <p></p>
+        <%= f.fields_for :blues do |blue| %>
+            <%= render 'blue', blue: blue %>
+        <% end %>
+    </div>
+    <p></p>
+    <div>
+        <%= f.fields_for :reds do |red| %>
+            <%= render 'red', red: red %>
+        <% end %>
+    </div>
+    <p></p>
+    <div>
+        <%= @meeting.away_team %>
+        <p></p>
+        <%= f.fields_for :whites do |white| %>
+            <%= render 'white', white: white %>
+        <% end %>
+    </div>
+    <p></p>
+    <div>
+        <%= f.fields_for :yellows do |yellow| %>
+            <%= render 'yellow', yellow: yellow %>
+        <% end %>
+    </div>
+    <p></p>
+    <%= f.submit %>
+    <% end %>
+
+</div>
+   
 
 
