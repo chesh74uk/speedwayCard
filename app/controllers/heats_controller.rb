@@ -17,6 +17,15 @@ class HeatsController < ApplicationController
     @meeting = @heat.meeting
   end
   
+    def destroy
+       @heat = Heat.find(params[:id])
+       meeting_id = @heat.meeting_id
+       @heat.destroy
+        respond_to do |format|
+          format.html { redirect_to meeting_path(meeting_id), notice: 'Heat was deleted.' }
+        end
+    end
+  
   
   def update
     @heat = Heat.find(params[:id])
