@@ -1,7 +1,5 @@
-<div>
-        <%= red.label 'Gate' %>
+<div style="background-color:#ffcccc">
         <%= red.select(:gate_number, options_for_select([['1',1],['2',2],['3',3],['4',4]], red.object.gate_number)) %>
-        <%= red.label 'Rider' %>
         <%= red.select(:rider_name, options_for_select([[@meeting.home_rider_1, @meeting.home_rider_1],
                                                             [@meeting.home_rider_2, @meeting.home_rider_2],
                                                             [@meeting.home_rider_3, @meeting.home_rider_3],

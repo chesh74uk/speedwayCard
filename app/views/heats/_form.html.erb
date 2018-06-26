@@ -9,17 +9,17 @@
         <%= f.hidden_field :id %>
     </div>
     <p></p>
+        <div>
+        <%= f.fields_for :reds do |red| %>
+            <%= render 'red', red: red %>
+        <% end %>
+    </div>
+    <p></p>
     <div>
         <%= @meeting.home_team %>
         <p></p>
         <%= f.fields_for :blues do |blue| %>
             <%= render 'blue', blue: blue %>
-        <% end %>
-    </div>
-    <p></p>
-    <div>
-        <%= f.fields_for :reds do |red| %>
-            <%= render 'red', red: red %>
         <% end %>
     </div>
     <p></p>

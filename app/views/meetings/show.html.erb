@@ -20,17 +20,17 @@
                 <td><%= button_to 'Delete', heat_path(heat.id), method: :delete, class: 'btn btn-sm', data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <tr>
-                <% heat.blues.each do |blue| %>
-                <td><%= blue.rider_name %> : <%= blue.score %></td>
-                <% end %>
                 <% heat.reds.each do |red| %>
-                <td><%= red.rider_name %> : <%= red.score %></td>
+                <td style="background-color:#ffcccc"><%= red.rider_name %> : <%= red.score %></td>
+                <% end %>
+                <% heat.blues.each do |blue| %>
+                <td style="background-color:#cce6ff"><%= blue.rider_name %> : <%= blue.score %></td>
                 <% end %>
                 <% heat.whites.each do |white| %>
                 <td><%= white.rider_name %> : <%= white.score %></td>
                 <% end %>
                 <% heat.yellows.each do |yellow| %>
-                <td><%= yellow.rider_name %> : <%= yellow.score %></td>
+                <td style="background-color:#ffffcc"><%= yellow.rider_name %> : <%= yellow.score %></td>
                 <% end %>
             </tr>
             <% end %>
