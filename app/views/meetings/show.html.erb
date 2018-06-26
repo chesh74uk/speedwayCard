@@ -17,7 +17,7 @@
             <tr>
                 <td>Heat <%= heat.heat_number %> : <%= heat.heat_time %></td>
                 <td><%= button_to 'Edit', edit_heat_path(heat.id), method: :get, class: 'btn btn-sm' %></td>
-                <td><%= button_to 'Delete', heat_path(heat.id), method: :delete, class: 'btn btn-sm' %></td>
+                <td><%= button_to 'Delete', heat_path(heat.id), method: :delete, class: 'btn btn-sm', data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <tr>
                 <% heat.blues.each do |blue| %>
